@@ -23,4 +23,8 @@ export const teams = [
   "Brighton & Hove Albion",
   "Newcastle United",
   "Eintracht Frankfurt",
+  "Paris Saint Germain",
+  "PSG",
+  "Juventus",
+  "Atletico Madrid",
 ];
