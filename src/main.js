@@ -3,6 +3,13 @@ import { VideoAPI, EmbedToken, URLFeed, competition, teams } from "./API.js";
 const container = document.querySelector("#container");
 const popup = document.querySelector("#popup");
 const overlay = document.querySelector("#overlay");
+const homeBtn = document.querySelectorAll(".home-btn");
+const liveBtn = document.querySelectorAll(".live-btn");
+const menuContainer = document.querySelector(".burger-menu");
+const menu = document.querySelector(".burger-menu .nav-links");
+const menuBtn = document.querySelector(".burger");
+const lines = document.querySelectorAll(".burger .line");
+const loadingSkeleton = document.querySelector(".loading-skeleton");
 
 const openPopup = (e) => {
   const cardParent = e.target.closest(".card-container");
@@ -47,7 +54,7 @@ const fetchData = () => {
         const { title, matchviewUrl, thumbnail, date, competition } = item;
         teams.some((team) => title.includes(team))
           ? (container.innerHTML += `
-        <div class="card-container">
+        <div class="card-container hide">
             <div class="card" data-thumbnail="${thumbnail}" data-date="${date}" data-competition="${competition}" data-matchview="${matchviewUrl}" >
                 <img class="card-img" src="${thumbnail}" alt="thumbnail" />
             </div>
@@ -63,6 +70,15 @@ const fetchData = () => {
         cards.forEach((card) => {
           card.addEventListener("click", openPopup);
         });
+
+        setTimeout(() => {
+          loadingSkeleton.style.display = "none";
+          cards.forEach((card) => {
+            card.classList.remove("hide");
+          });
+
+          container.style.display = "grid";
+        }, 1000);
       });
     })
     .catch((error) => {
@@ -71,3 +87,62 @@ const fetchData = () => {
 };
 
 fetchData();
+
+/*Menu*/
+
+menuBtn.addEventListener("click", () => {
+  menuContainer.classList.toggle("active");
+  menu.classList.toggle("active");
+
+  menuBtn.classList.toggle("active");
+  lines.forEach((line) => {
+    line.classList.toggle("active");
+  });
+});
+
+/*Home Button*/
+
+homeBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelector("#container").scrollIntoView({
+      behavior: "smooth",
+      top: 0,
+    });
+
+    document.querySelector(".live-stream").style.display = "none";
+    document.querySelector("#container").style.display = "grid";
+
+    if (window.screen.width < 830) {
+      menuContainer.classList.toggle("active");
+      menu.classList.toggle("active");
+
+      menuBtn.classList.toggle("active");
+      lines.forEach((line) => {
+        line.classList.toggle("active");
+      });
+    }
+  });
+});
+
+/*Live Button*/
+
+liveBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".live-stream").style.display = "block";
+    document.querySelector(".live-stream").scrollIntoView({
+      behavior: "smooth",
+      top: 0,
+    });
+    document.querySelector("#container").style.display = "none";
+
+    if (window.screen.width < 830) {
+      menuContainer.classList.toggle("active");
+      menu.classList.toggle("active");
+
+      menuBtn.classList.toggle("active");
+      lines.forEach((line) => {
+        line.classList.toggle("active");
+      });
+    }
+  });
+});
