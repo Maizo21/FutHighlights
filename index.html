@@ -11,14 +11,106 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <nav>
+      <div class="navbar navbar-desktop">
+        <div class="logo">
+          <img src="./futbol-ball.ico" alt="logo" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#" class="home-btn"> Inicio 🥅</a></li>
+          <li><a href="#" class="live-btn"> Tiempo Real 📺</a></li>
+        </ul>
+      </div>
+
+      <div class="burger">
+        <div class="line1 line"></div>
+        <div class="line2 line"></div>
+        <div class="line3 line"></div>
+      </div>
+
+      <div class="burger-menu">
+        <ul class="nav-links">
+          <li><a href="#" class="home-btn"> Inicio 🥅</a></li>
+          <li><a href="#" class="live-btn"> Tiempo Real 📺</a></li>
+        </ul>
+      </div>
+    </nav>
     <h1>⚽ Highlights ⚽</h1>
+    <div class="live-stream">
+      <iframe
+        src="https://www.scorebat.com/embed/livescore/?token=Nzc1OTBfMTY4MjQ3MDE2Ml9iNWFhNGYwNTQ0NTk0OWMxZmEwMWRkZTg0MzZjMDkxNWEyNDIwYWEz"
+        frameborder="0"
+        width="600"
+        height="760"
+        allowfullscreen
+        allow="autoplay; fullscreen"
+        style="width: 100%; height: 760px; overflow: hidden; display: block"
+        class="_scorebatEmbeddedPlayer_"
+      ></iframe>
+      <script>
+        (function (d, s, id) {
+          var js,
+            fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://www.scorebat.com/embed/embed.js?v=arrv";
+          fjs.parentNode.insertBefore(js, fjs);
+        })(document, "script", "scorebat-jssdk");
+      </script>
+    </div>
+
+    <div class="loading-skeleton">
+      <div class="card-container">
+        <div class="card"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#034694"
+            fill-opacity="1"
+            d="M0,64L80,80C160,96,320,128,480,154.7C640,181,800,203,960,202.7C1120,203,1280,181,1360,170.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="card-container">
+        <div class="card"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#034694"
+            fill-opacity="1"
+            d="M0,64L80,80C160,96,320,128,480,154.7C640,181,800,203,960,202.7C1120,203,1280,181,1360,170.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="card-container">
+        <div class="card"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#034694"
+            fill-opacity="1"
+            d="M0,64L80,80C160,96,320,128,480,154.7C640,181,800,203,960,202.7C1120,203,1280,181,1360,170.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="card-container">
+        <div class="card"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#034694"
+            fill-opacity="1"
+            d="M0,64L80,80C160,96,320,128,480,154.7C640,181,800,203,960,202.7C1120,203,1280,181,1360,170.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <div id="container"></div>
     <footer>
       <p>
         Made with ❤️⚽ by
         <a href="https://github.com/Maizo21" target="_blank">Maizo</a>
       </p>
     </footer>
-    <div id="container"></div>
+
     <div id="popup"></div>
     <div id="overlay"></div>
     <script type="module" src="main.js"></script>
